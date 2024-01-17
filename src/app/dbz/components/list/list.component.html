@@ -1,0 +1,22 @@
+<h4>Listado</h4>
+<!--con "first" me da la posicion primera del listado
+    con "last" me da la ultima posicion del listado
+    con "even" me da las posicion par del listado
+    con "odd" me da las posicion impar del listado
+    con "index" me da las posiciones de cada registro del listado en base 0
+  "-->
+    <ul class="list-group">
+      <li *ngFor="let character of characterList;
+       let i = index;
+       let f = first;
+       let e = even;
+       let o = odd;
+       let l =last"
+        class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="{'list-group-item-primary':e,
+        'list-group-item-danger' : o}">
+      <div>
+        {{i + 1}}. Personaje: <strong>{{character.name}}</strong> - Poder: <strong>{{character.power}}</strong>
+      </div>
+      <button class="btn btn-danger" (click)="onDeleteCharacter(character.id)">Eliminar</button>
+      </li>
+    </ul>
